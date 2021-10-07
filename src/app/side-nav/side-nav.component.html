@@ -1,0 +1,15 @@
+<div class="navbar navbar-expand d-flex flex-column align-item-start">
+    <a href="#" class="navbar-brand text-light mt-1">
+        <div class="display-6 font-weight-bold"> MENU</div>
+    </a>
+    <ul class="navbar-nav d-flex flex-column mt-5 w-100">
+        <li class="nav-item w-100" *ngFor="let page of pages">
+            <a (click)="goToPage(page.link)" routerLinkActive="router-link-active" class="nav-link text-light pl-4">{{page.name}}</a>
+        </li>
+    </ul>
+   <div style="background-color: rgb(143, 29, 29);position: fixed;bottom: 1%;width: fit-content;font-size: 1vw;">
+    <a class="nav-link text-light pl-4" (click)="logout()">Logout</a>
+   </div>
+        
+   
+</div>

@@ -1,0 +1,14 @@
+.navbar{
+    height: 100vh;
+    transition: 0.4s;
+    overflow-y: hidden;
+}
+.nav-link{
+    font-size: 1.3vw;
+    cursor: pointer;
+}
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover{
+    background-color: #ffffff26;
+}

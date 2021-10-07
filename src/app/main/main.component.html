@@ -1,0 +1,29 @@
+<!-- <button type="button" name="" id="" class="btn btn-dark" (click)="ss.toggleSidebar()" style="outline: none;">Menu</button> -->
+<div class="alert alert-dark text-center font-weight-bold">
+   <h5>Dashboard </h5> 
+   
+
+  </div>
+  <div class="row">
+    <div class="col my-3" *ngFor="let c of counts">
+      <div class="card" style="width: 18rem;">
+        
+        <div class="card-body text-center" >
+          <h5 class="card-title">{{c.name}}</h5>
+          <span class="badge bg-success" >{{c.count}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col my-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body text-center" >
+          <h5 class="card-title">Live Event Screen Control</h5>
+      <button type="button" class="btn btn-dark" (click)="toogle(false)" *ngIf="showEnable">Enable Screen</button>
+      <button type="button" class="btn btn-danger" (click)="toogle(true)" *ngIf="!showEnable">Disable Screen</button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  
+  

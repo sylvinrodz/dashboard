@@ -1,0 +1,18 @@
+<!-- <img [src]="photo.getDownloadURL() | async" *ngFor="let photo of photos"/> -->
+<!-- <img src="{{image}}" alt=""> -->
+<div class="row" >
+    <div class="col" *ngIf="total == 0">
+        <button type="button" class="btn btn-dark" (click)="LoadPhotos()">LoadPhotos</button>
+    </div>
+    <div class="col" *ngIf="total >= 100 && DownloadProgress == 0">
+        <button type="button" class="btn btn-dark" (click)="DownloadAll()">Download All Photos</button>
+    </div>
+</div>
+<br>
+<div class="progress" *ngIf="!(total >= 100)">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': total+'%'}">Loading images...</div>
+  </div>
+  <div class="progress" *ngIf="DownloadProgress > 0">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': DownloadProgress+'%'}">Ziping image file..</div>
+  </div>
+<br>

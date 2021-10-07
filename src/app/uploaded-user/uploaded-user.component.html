@@ -1,0 +1,57 @@
+<div class="alert alert-dark text-center font-weight-bold">
+    <h5>Uploaded Users<button type="button" class="btn btn-dark float-end" *ngIf="persons.length > 0" (click)="DownloadUserReport()">Download Report </button></h5> 
+</div>
+<!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="selectValue" name="selectValue" (change)="onSelect(selectValue)">
+  <option selected value="default">Select Table</option>
+  <option value="{{i}}" *ngFor="let t of tables;let i = index;"  style="text-transform: capitalize;">{{t.name}}</option>
+</select> -->
+<br>
+<div class="alert alert-success text-center" role="alert" *ngIf="persons.length === 0">
+  Fetching data...
+</div>
+<div >
+<table datatable [dtOptions]="dtOptions"  [dtTrigger]="dtTrigger" class="row-border hover" [hidden]="!(persons.length > 0)">
+  <thead>
+    <tr >
+      <th>#</th>
+      <th *ngFor="let h of headers" >{{h.name}}</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons;let i=index">
+      <td>{{ i+1 }}</td>
+      <td *ngFor="let h of headers">
+        <span *ngIf="h.type ==='value'">{{person[h.object]}}</span> 
+        <span *ngIf="h.type ==='time'">{{person[h.object]?.toDate() | date:'MMM d, y, h:mm a'}}</span>
+        <span *ngIf="h.type ==='action'">
+          <button type="button" *ngIf="person.isLogin" class="btn btn-danger btn-sm" (click)="logout(person.id)">Logout</button>
+          
+        </span>
+      </td>
+  
+    </tr>
+  </tbody>
+</table>
+</div>
+<div *ngIf="persons.length > 0">
+<table #userReportData style="display: none;">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th *ngFor="let h of headers">{{h.name}}</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons;let i=index">
+      <td>{{ i+1 }}</td>
+      <td *ngFor="let h of headers">
+        <span *ngIf="h.type ==='value'">{{person[h.object]}}</span> 
+        <span *ngIf="h.type ==='time'">{{person[h.object]?.toDate() | date:'MMM d, y, h:mm a'}}</span>
+      </td>
+  
+    </tr>
+  </tbody>
+</table>
+</div>
