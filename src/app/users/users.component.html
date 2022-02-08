@@ -25,6 +25,10 @@
       <td *ngFor="let h of headers">
         <span *ngIf="h.type ==='value'">{{person[h.object]}}</span> 
         <span *ngIf="h.type ==='time'">{{person[h.object]?.toDate() | date:'MMM d, y, h:mm a'}}</span>
+        <span *ngIf="h.type ==='img'">
+          <button *ngIf="person?.pic"  class="btn btn-danger btn-sm" (click)="openImage(person?.pic)">View</button>
+          
+        </span>
         <span *ngIf="h.type ==='action'">
           <button type="button" *ngIf="person.isLogin" class="btn btn-danger btn-sm" (click)="logout(person.id)">Logout</button>
           

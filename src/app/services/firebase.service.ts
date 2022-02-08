@@ -1,6 +1,6 @@
 import { AngularFirestore  } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-
+import * as firebase from 'firebase/app';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,6 +28,9 @@ export class FirebaseService {
   getActiveUser(databssname:string){
     return this.firestore.collection(databssname).doc('count').valueChanges();
   }
+  getActiveUser1(){
+    return this.firestore.collection('users',ref => ref.where("isLogin","==",true)).valueChanges();
+  }
   logout(databssname,userID){
     return this.firestore.collection(databssname).doc(userID).update({
       isLogin:false,
@@ -42,5 +45,21 @@ export class FirebaseService {
   }
   getScreenValue(){
     return this.firestore.collection('showCountDown').doc('showCountDown').valueChanges();
+  }
+  toggleComment(user,id,val:boolean){
+    this.firestore.collection("comments").doc(id).update({
+      enable:val
+    }).then(()=>{
+      if(val){
+        this.firestore.collection("users").doc(user).update({
+          points:firebase.default.firestore.FieldValue.increment(10)
+        })
+      }else{
+        this.firestore.collection("users").doc(user).update({
+          points:firebase.default.firestore.FieldValue.increment(-10)
+        })
+      }
+   
+    })
   }
 }

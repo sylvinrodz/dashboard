@@ -72,18 +72,20 @@ export class UploadedUserComponent implements OnInit {
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     /* save to file */
-    XLSX.writeFile(wb, environment.projectName+".xlsx");
+    XLSX.writeFile(wb, environment.projectName+" User.xlsx");
   }
-  logout(userID){
-    var txt;
-    var r = confirm("Are you sure, you want to logout this user?");
-    if (r == true) {
+  enable(userID){
+    
        this.fs.logout(this.tables[this.selectValue].path,userID).catch(()=>{
       alert('something went wrong!');
+ 
     })
-    }
 
    
+  }
+  openImage(img){
+    console.log(img)
+    window.open(img);
   }
 
 }

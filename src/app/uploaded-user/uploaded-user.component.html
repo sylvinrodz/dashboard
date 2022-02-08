@@ -1,5 +1,5 @@
 <div class="alert alert-dark text-center font-weight-bold">
-    <h5>Uploaded Users<button type="button" class="btn btn-dark float-end" *ngIf="persons.length > 0" (click)="DownloadUserReport()">Download Report </button></h5> 
+    <h5>Signup<button type="button" class="btn btn-dark float-end" *ngIf="persons.length > 0" (click)="DownloadUserReport()">Download Report </button></h5> 
 </div>
 <!-- <select class="form-select" aria-label="Default select example" [(ngModel)]="selectValue" name="selectValue" (change)="onSelect(selectValue)">
   <option selected value="default">Select Table</option>
@@ -24,9 +24,15 @@
       <td *ngFor="let h of headers">
         <span *ngIf="h.type ==='value'">{{person[h.object]}}</span> 
         <span *ngIf="h.type ==='time'">{{person[h.object]?.toDate() | date:'MMM d, y, h:mm a'}}</span>
-        <span *ngIf="h.type ==='action'">
-          <button type="button" *ngIf="person.isLogin" class="btn btn-danger btn-sm" (click)="logout(person.id)">Logout</button>
+        <span *ngIf="h.type ==='array'" >
+          <button class="btn btn-dark btn-sm mx-1" *ngFor="let img of person[h.object]" (click)="openImage(img)">
+            view
+          </button>
           
+        </span> 
+        <span *ngIf="h.type ==='action'">
+          <button type="button" *ngIf="!person.enable" class="btn btn-success btn-sm" (click)="fs.toggleComment(person.user,person.id,true)">Enable</button>
+          <button type="button" *ngIf="person.enable" class="btn btn-danger btn-sm" (click)="fs.toggleComment(person.user,person.id,false)">Disable</button>
         </span>
       </td>
   

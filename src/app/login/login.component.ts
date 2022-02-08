@@ -16,16 +16,23 @@ export class LoginComponent implements OnInit {
   constructor(private loginService:LoginService, private router:Router) { }
 
   ngOnInit(): void {
-   var user =  localStorage.getItem("Dashboarduser");
-   if(user)
-    this.router.navigate(['/users']);
+  
+   var user =  JSON.parse(localStorage.getItem("Dashboarduser"));
+   if(user.role == 'admin'  ){
+    this.router.navigate(['/main']);
+   }
+    
+  //  else{
+  //   this.router.navigate(['/questions']);
+  //  }
    
   // this.router.navigate(['/questions']);
   }
-  login(form:NgForm){
+  login(form:NgForm, role){
     this.loginService.login(form.value).then((res)=>{
+      form.value.role = "admin";
       localStorage.setItem("Dashboarduser",JSON.stringify(form.value));
-      this.router.navigate(['/users']);
+      this.router.navigate(['/main']);
     }).catch((err)=>{
       this.LoginAlert = true;
       this.LoginAlertMsg =err.msg;

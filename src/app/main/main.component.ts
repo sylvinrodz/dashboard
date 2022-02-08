@@ -19,6 +19,10 @@ counts:any = [];
   constructor(private router:Router,public ss:SidebarService,private firebase:FirebaseService,private http:HttpClient) { }
 
   ngOnInit(): void {
+    // this.firebase.getActiveUser1().subscribe((res:any)=>{
+    //   console.log(res.length);
+      
+    //   });
     var user =  localStorage.getItem("Dashboarduser");
    if(user == null){
     this.router.navigate(['/login']);
@@ -31,13 +35,14 @@ counts:any = [];
      if(this.counts.length > 0){
       this.counts.forEach(element => {
         this.firebase.getActiveUser(element.urlName).subscribe((res:any)=>{
-          element.count = res.total;
+           element.count = res.total;
+          console.log(res);
           });
       });
     }
-    this.firebase.getScreenValue().subscribe((res)=>{
-      this.showEnable = res['value'];
-    })
+    // this.firebase.getScreenValue().subscribe((res)=>{
+    //   this.showEnable = res['value'];
+    // })
 
   }
   toogle(value){

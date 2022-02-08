@@ -49,13 +49,13 @@ export class QuestionsComponent implements OnInit {
     this.headers = environment[this.tables[selectValue].headerName];
    
     this.firestore.collection(this.tables[selectValue].path , ref => 
-     ref.orderBy(this.tables[selectValue].sortBy,this.tables[selectValue].order)).get().subscribe((res) => {
+     ref.orderBy(this.tables[selectValue].sortBy,this.tables[selectValue].order)).valueChanges().subscribe((res) => {
 
      
       this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
         // Destroy the table first
         dtInstance.destroy();
-        this.persons = res.docs;
+        this.persons = res;
      
         // Call the dtTrigger to rerender again
         this.dtTrigger.next();
@@ -72,9 +72,9 @@ export class QuestionsComponent implements OnInit {
     /* generate workbook and add the worksheet */
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
+ 
     /* save to file */
-    XLSX.writeFile(wb, environment.projectName+".xlsx");
+    XLSX.writeFile(wb, environment.projectName+" Contact Us.xlsx");
   }
   logout(userID){
     var txt;

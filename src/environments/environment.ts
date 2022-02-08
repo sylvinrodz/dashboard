@@ -2,12 +2,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyC8DgwGX2cVSP_6L2xD5frZlWStHuCcj7g",
-  authDomain: "samruddhi2.firebaseapp.com",
-  projectId: "samruddhi2",
-  storageBucket: "samruddhi2.appspot.com",
-  messagingSenderId: "880712870302",
-  appId: "1:880712870302:web:d70259dc699537b6eb0e8f"
+    apiKey: "AIzaSyB_T_CC4lz8-S3t9uF0Wm5xzsbCOWVFavc",
+    authDomain: "vayego-84bc6.firebaseapp.com",
+    projectId: "vayego-84bc6",
+    storageBucket: "vayego-84bc6.appspot.com",
+    messagingSenderId: "555014108085",
+    appId: "1:555014108085:web:1ab03c57fb495984b8dffc"
   },
   userHeaders:[
     {

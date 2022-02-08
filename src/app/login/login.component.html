@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title text-center">Login</h5>
       <br>
-      <form #loginForm="ngForm" (submit)="login(loginForm)">
+      <form #loginForm="ngForm" (submit)="login(loginForm,'admin')">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Username</label>
             <input type="text" class="form-control" name="username" [(ngModel)]="username" required>

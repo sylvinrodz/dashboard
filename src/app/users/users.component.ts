@@ -34,6 +34,9 @@ export class UsersComponent implements OnInit, OnDestroy {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
+  openImage(img){
+    window.open(img);
+  }
   ngAfterViewInit(): void {
     this.dtTrigger.next();
   }
@@ -48,7 +51,7 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     this.headers = environment[this.tables[selectValue].headerName];
    
-    this.fs.getUser(this.tables[selectValue].path, this.tables[selectValue].sortBy, this.tables[selectValue].order).subscribe((res) => {
+    this.fs.getUser(this.tables[selectValue].path, this.tables[selectValue].sortBy, this.tables[selectValue].order,1000).subscribe((res) => {
 
      
       this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {

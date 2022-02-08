@@ -22,12 +22,15 @@ export class SidebarService {
   }
   toggleSidebar(){
 
-       var user =  localStorage.getItem("Dashboarduser");
+       var user =  JSON.parse(localStorage.getItem("Dashboarduser"));
     if(user == null){
      // this.router.navigate(['/login']);
      this.sidbarSubject.next(false);
     }else{
+      if(user.role == 'admin')
       this.sidbarSubject.next(true);
+      else
+      this.sidbarSubject.next(false);
     }
   }
 

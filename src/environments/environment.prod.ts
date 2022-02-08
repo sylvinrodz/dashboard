@@ -1,32 +1,32 @@
 export const environment = {
   production: true,
-  projectName:'samruddhi2',
-  Role:'questions',
+  projectName:'Vayego',
+  Role:'admin',
   firebase: {
-    apiKey: "AIzaSyC8DgwGX2cVSP_6L2xD5frZlWStHuCcj7g",
-  authDomain: "samruddhi2.firebaseapp.com",
-  projectId: "samruddhi2",
-  storageBucket: "samruddhi2.appspot.com",
-  messagingSenderId: "880712870302",
-  appId: "1:880712870302:web:d70259dc699537b6eb0e8f"
+    apiKey: "AIzaSyB_T_CC4lz8-S3t9uF0Wm5xzsbCOWVFavc",
+    authDomain: "vayego-84bc6.firebaseapp.com",
+    projectId: "vayego-84bc6",
+    storageBucket: "vayego-84bc6.appspot.com",
+    messagingSenderId: "555014108085",
+    appId: "1:555014108085:web:1ab03c57fb495984b8dffc"
   },
   selectTable:"0",
   counts:[
-    {
-        "name":"Total Active Users",
-        "urlName":"count",
-        "count":0
-    },
+    // {
+    //     "name":"Total Active Users",
+    //     "urlName":"count",
+    //     "count":0
+    // },
     // {
     //     "name":"Total Hearts",
     //     "urlName":"likes",
     //     "count":0
     // },
-    // {
-    //     "name":"Total Likes",
-    //     "urlName":"thumbs",
-    //     "count":0
-    // }
+    {
+        "name":"Total Likes",
+        "urlName":"thumbs",
+        "count":0
+    }
 ],
   tables:[
     
@@ -34,44 +34,34 @@ export const environment = {
         name:"login",
         headerName:"loginHeaders",
         path:"users",
-        sortBy:"loginAt",
-        order:'desc'
+        sortBy:"name",
+        order:'asc'
       },
       {
         name:"signup",
         headerName:"signupHeaders",
-        path:"users",
-        sortBy:"name1",
-        order:'asc'
+        path:"comments",
+        sortBy:"date",
+        order:'desc'
       },
       {
-        name:"Questions",
+        name:"contactus",
         headerName:"questionsHeaders",
-        path:"questions",
-        sortBy:"updatedAt",
+        path:"contactus",
+        sortBy:"date",
         order:'desc'
       }
     
   ],
   signupHeaders:[
     {
-      name:"Title",
-      object:"title",
-      type:'value'
-    },
-    {
       name:"Name",
       object:"name",
       type:'value'
     },
     {
-      name:"Email",
-      object:"email",
-      type:'value'
-    },
-    {
-      name:"Contact No.",
-      object:"contactNo",
+      name:"Message",
+      object:"message",
       type:'value'
     },
     {
@@ -82,33 +72,95 @@ export const environment = {
     {
       name:"State",
       object:"state",
+      type:'value'
+    },
+    {
+      name:"Photos",
+      object:"photos",
+      type:'array'
+    },
+    {
+      name:"Enable",
+      object:"enable",
+      type:'action'
+    },
+    {
+      name:"Date",
+      object:"date",
+      type:'time'
+    }
+  ],
+  loginHeaders:[
+    {
+      name:"Name",
+      object:"name",
+      type:'value'
+    },
+    {
+      name:"DP",
+      object:"pic",
+      type:'img'
+    },
+    {
+      name:"Mobile Number",
+      object:"mobileNumber",
+      type:'value'
+    },
+    {
+      name:"City",
+      object:"city",
+      type:'value'
+    },
+    {
+      name:"State",
+      object:"state",
+      type:'value'
+    },
+    {
+      name:"Points",
+      object:"points",
+      type:'value'
+    },
+    {
+      name:"Email",
+      object:"email",
+      type:'value'
+    },
+    {
+      name:"Pincode",
+      object:"pincode",
+      type:'value'
+    },
+    {
+      name:"Crops",
+      object:"crops",
+      type:'value'
+    },
+    {
+      name:"Fruits",
+      object:"fruits",
+      type:'value'
+    },
+    {
+      name:"Vegetables",
+      object:"vegetables",
       type:'value'
     },
     {
       name:"Signup",
-      object:"signupAt",
+      object:"loginAt",
       type:'time'
-    },
+    }
   ],
-  loginHeaders:[
-    {
-      name:"Title",
-      object:"title",
-      type:'value'
-    },
+  questionsHeaders:[
     {
       name:"Name",
       object:"name",
       type:'value'
     },
     {
-      name:"Email",
-      object:"email",
-      type:'value'
-    },
-    {
-      name:"Contact No.",
-      object:"contactNo",
+      name:"Mobile Number",
+      object:"mobileNumber",
       type:'value'
     },
     {
@@ -121,52 +173,18 @@ export const environment = {
       object:"state",
       type:'value'
     },
+    
     {
-      name:"Login",
-      object:"isLogin",
+      name:"Message",
+      object:"message",
       type:'value'
     },
-    {
-      name:"Login At",
-      object:"loginAt",
-      type:'time'
-    },
-    {
-      name:"Logout At",
-      object:"logoutAt",
-      type:'time'
-    },
-    {
-      name:"Action",
-      object:"isLogin",
-      type:'action',
-    }
-  ],
-  questionsHeaders:[
-    {
-      name:"Question",
-      object:"question",
-      type:'value'
-    },
-    {
-      name:"name",
-      object:"name",
-      type:'value'
-    },
-    // {
-    //   name:"email",
-    //   object:"user",
-    //   type:'array'
-    // },
-    {
-      name:"Contact No.",
-      object:"contactNo",
-      type:'value'
-    },
-    {
-      name:"Date & Time",
-      object:"updatedAt",
+    
+     {
+      name:"Date",
+      object:"date",
       type:'time'
     }
+ 
   ],
 };

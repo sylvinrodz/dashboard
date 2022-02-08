@@ -17,12 +17,12 @@ export class SideNavComponent implements OnInit {
       name:"Users",
       link:"/users"
     },
-    // {
-    //   name:"Uploaded Users",
-    //   link:"/uploadedUser"
-    // },
     {
-      name:"Questions",
+      name:"Review",
+      link:"/uploadedUser"
+    },
+    {
+      name:"Contact Us",
       link:"/questions"
     },
     // {
